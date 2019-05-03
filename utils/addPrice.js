@@ -1,7 +1,7 @@
-module.exports = cart =>{
+module.exports = product =>{
   let totalCost = 0;
-  for (var i = 0; i < cart.length; i++) {
-    totalCost += cart[i].price;
+  for (var i = 0; i < product; i++) {
+    totalCost += product.price;
   }
   return totalCost;
 }

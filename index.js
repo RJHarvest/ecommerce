@@ -13,7 +13,7 @@ mongoose.connect(keys.mongoURI);
 
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,6 +32,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/websiteRoutes')(app);
+require('./routes/testRoutes')(app);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () =>{

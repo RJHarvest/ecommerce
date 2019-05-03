@@ -23,6 +23,7 @@ body {
   text-transform: uppercase;
   background-color: #1a1a1a !important;
   color: #eee !important;
+  width: 100%;
 }
 
 .color-primary {
@@ -40,11 +41,21 @@ body {
 .button-secondary{
   background-color: #b4975a !important;
   color: #1a1a1a !important;
-  padding: 20px 40px !important;
+  padding: 15px 30px !important;
   border: 1px solid #b4975a !important;
+}
+.button-primary:hover,
+.button-secondary:hover{
+  filter: brightness(110%);
 }
 .button-small{
   padding: 10px 20px !important;
+}
+.no-padding{
+  padding: 0px !important;
+}
+.small-padding{
+  padding: 10px !important;
 }
 
 /* navbar */
@@ -114,6 +125,14 @@ body {
   background-size: cover;
   background-position: center;
   height: 75vh;
+}
+
+/* card */
+/* .no-border-radius{
+  border-radius: 0 !important;
+} */
+.card:first-child{
+  border-radius: 0;
 }
 
 /* footer */

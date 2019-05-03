@@ -1,0 +1,209 @@
+@font-face {
+    font-family: 'Gentleman';
+    src: url('../fonts/GentlemanRegular.woff2') format('woff2'),
+        url('../fonts/GentlemanRegular.woff') format('woff'),
+        url('../fonts/GentlemanRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Luxia Display';
+    src: url('../fonts/Luxia-Display.woff2') format('woff2'),
+        url('../fonts/Luxia-Display.woff') format('woff'),
+        url('../fonts/Luxia-Display.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+  font-family: 'Luxia Display' !important;
+  letter-spacing: 2px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  background-color: #1a1a1a !important;
+  color: #eee !important;
+}
+
+.color-primary {
+  background-color: #1a1a1a;
+}
+.color-secondary{
+  background-color: #b4975a;
+}
+.button-primary{
+  background-color: #1a1a1a !important;
+  color: #b4975a !important;
+  padding: 15px 30px !important;
+  border: 1px solid #1a1a1a !important;
+}
+.button-secondary{
+  background-color: #b4975a !important;
+  color: #1a1a1a !important;
+  padding: 20px 40px !important;
+  border: 1px solid #b4975a !important;
+}
+.button-small{
+  padding: 10px 20px !important;
+}
+
+/* navbar */
+.mynavbar{
+  background-color: #070707;
+  color: #eee !important;
+  font-size: 0.8em;
+  line-height: 3;
+}
+@media only screen and (min-width: 768px) {
+  .mynavbar .brand-text {
+    display: inline-block;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mynavbar .brand-text {
+    display: none;
+  }
+}
+.mynavbar .navbar-brand,
+.mynavbar .navbar-collapse ul li a:hover,
+.mynavbar button i:hover,
+.cart .dropdown-menu a:hover{
+  color: #b4975a;
+}
+.mynavbar .navbar-brand:hover{
+  filter: brightness(120%);
+}
+.mynavbar .navbar-collapse ul li a,
+.mynavbar i,
+.cart .dropdown-menu .dropdown-item{
+  color: #eee;
+}
+@media only screen and (max-width: 480px) {
+  .mynavbar a {
+    margin-right: 65px;
+  }
+  .mynavbar a:first-of-type{
+    margin-left: 10px;
+  }
+}
+.mynavbar .navbar-nav li{
+  margin-right: 40px;
+}
+.mynavbar .dropdown-menu,
+.mynavbar .dropdown-item:hover{
+  background-color: #070707;
+}
+.mynavbar .dropdown-item{
+  font-size: 0.8em;
+}
+.cart .dropdown-toggle::after {
+  display:none;
+}
+.cart .dropdown-menu{
+  width: 350px;
+}
+.custom-toggler.navbar-toggler {
+    border-color: rgb(180,151,90);
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(180,151,90)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.bg-image{
+  background-image: url('/images/omega-james-bond1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+}
+
+/* footer */
+footer{
+  background-color: #1a1a1d;
+  font-size: 0.8em;
+  padding: 70px 0;
+}
+footer h4{
+  color: #b4975a;
+}
+footer h6{
+  border-left: 3px solid #b4975a;
+  padding-left: 7px;
+}
+footer p{
+  color: #aaa;
+}
+footer a{
+  display: block;
+  line-height: 2.5;
+  color: #aaa;
+}
+footer a:hover{
+  color: #b4975a;
+}
+@media only screen and (min-width: 768px) {
+  footer .section{
+    padding-left: 70px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  footer .section{
+    padding-bottom: 30px;
+  }
+}
+footer .contact{
+  /* line-height: 1.5; */
+}
+.social-icon {
+  padding: 0;
+}
+.social-icon li {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+.social-icon li a {
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid #5c5c5c;
+  color: #b4975a;
+  font-size: 14px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  margin-top: 12px;
+  margin-right: 16px;
+  top: 0;
+  position: relative;
+  padding: 0;
+}
+.social-icon li a:hover {
+  background: #b4975a;
+	color: #5c5c5c;
+  /* top: 5px; */
+}
+
+/* copyright */
+.copyright{
+  background-color: #000;
+  font-size: 0.8em;
+  line-height: 2;
+  padding: 15px 30px;
+}
+.copyright a{
+  color: #5c5c5c;
+  padding-left: 20px;
+}
+.copyright a:not(:first-of-type){
+  margin-left: 15px;
+  border-left: 1px solid #b4975a;
+}
+.copyright a:hover{
+  color: #b4975a;
+}
+.copyright img{
+  height: 30px;
+  margin-right: 7px;
+}

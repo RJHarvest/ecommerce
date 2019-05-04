@@ -40,19 +40,25 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="cart">
         <% for (var i = 0; i < cart.length; i++) { %>
-        <div class="cart-item">
-          <!--<img src="/images/upload/<%= cart[i].image %>" alt="">
-          <p class="name"><%= cart[i].name %></p>
-          <p class="quantity">Quantity: <%= cart[i].quantity %></p>
-          <p class="price">$<%= cart[i].price %></p>-->
-          <a href="/api/delete-cart/<%= cart[i]._id %>"><i class="fas fa-times"></i></a>
+        <div class="navbar-cart-product cart-item">
+          <div class="d-flex align-items-center">
+            <a href="#">
+              <img src="/images/upload/<%= cart[i].image %>" class="img-fluid navbar-cart-product-image">
+            </a>
+            <div class="w-100">
+              <a href="/api/delete-cart/<%= cart[i]._id %>" class="close mr-3">
+                <i class="fa fa-times"></i>
+              </a>
+              <a href="#"><p class="name"><%= cart[i].name %></p></a>
+              <p class="quantity">Quantity: <%= cart[i].quantity %></p>
+              <p class="price">$<%= cart[i].price %></p>
+            </div>
+          </div>
         </div>
         <% } %>
-        <div class="dropdown-divider" style="margin: 3px 40px;"></div>
-
+        <div class="dropdown-divider" style="margin: 3px 20px;"></div>
         <span class="dropdown-item">Total: $<%= totalCost %></span>
-
-        <div class="dropdown-divider" style="margin: 3px 40px;"></div>
+        <div class="dropdown-divider" style="margin: 3px 20px;"></div>
         <a class="dropdown-item d-inline" href="/cart">View Cart</a>
         <a class="dropdown-item d-inline" href="/checkout">
           <button class="btn button-secondary button-small" style="text-transform:uppercase;font-size:1em;">Checkout</button>

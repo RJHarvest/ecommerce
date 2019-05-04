@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const addPrice = require('../utils/addPrice');
 const totalPrice = require('../utils/totalPrice');
 const removeCartItem = require('../utils/removeCartItem');
+// const checkCartItem = require('../utils/checkCartItem');
 
 const Product = mongoose.model('product');
 

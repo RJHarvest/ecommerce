@@ -1,4 +1,7 @@
 const passport = require('passport');
+const mongoose = require('mongoose');
+
+const User = mongoose.model('user');
 
 module.exports = app =>{
   app.post('/api/login',
@@ -7,8 +10,16 @@ module.exports = app =>{
       res.redirect('/');
   });
 
-  app.post('/api/register', (req, res) =>{
+  app.post('/api/register', async (req, res) =>{
     const { username, password, name, email, address } = req.body;
+
+    await new User({
+      username,
+      password,
+      name,
+      email,
+      address
+    }).save();
 
     res.redirect('/login');
   });

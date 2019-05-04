@@ -12,6 +12,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 var app = express();
+let cart = [];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -31,7 +32,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-require('./routes/websiteRoutes')(app);
+require('./routes/webpageRoutes')(app, cart);
+require('./routes/cartRoutes')(app, cart);
 require('./routes/testRoutes')(app);
 
 const port = process.env.PORT || 5000;

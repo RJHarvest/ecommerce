@@ -22,9 +22,9 @@
           Watch
         </a>
         <div class="dropdown-menu" aria-labelledby="shop">
-          <a class="dropdown-item" href="#">Classics</a>
-          <a class="dropdown-item" href="#">Quartz</a>
-          <a class="dropdown-item" href="#">Chronograph</a>
+          <a class="dropdown-item" href="/watch/classic">Classics</a>
+          <a class="dropdown-item" href="/watch/quartz">Quartz</a>
+          <a class="dropdown-item" href="/watch/chronograph">Chronograph</a>
         </div>
       </li>
       <li class="nav-item">
@@ -41,17 +41,17 @@
       <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="cart">
         <% for (var i = 0; i < cart.length; i++) { %>
         <div class="cart-item">
-          <img src="/images/upload/<%= cart[i].image %>" alt="">
+          <!--<img src="/images/upload/<%= cart[i].image %>" alt="">
           <p class="name"><%= cart[i].name %></p>
           <p class="quantity">Quantity: <%= cart[i].quantity %></p>
-          <p class="price">$<%= cart[i].price %></p>
-          <i class="fas fa-times"></i>
+          <p class="price">$<%= cart[i].price %></p>-->
+          <a href="/api/delete-cart/<%= cart[i]._id %>"><i class="fas fa-times"></i></a>
         </div>
         <% } %>
         <div class="dropdown-divider" style="margin: 3px 40px;"></div>
-        <% for (var i = 0; i < totalCost.length; i++) { %>
-        <span class="dropdown-item">Total: $<%= totalCost[i] %></span>
-        <% } %>
+
+        <span class="dropdown-item">Total: $<%= totalCost %></span>
+
         <div class="dropdown-divider" style="margin: 3px 40px;"></div>
         <a class="dropdown-item d-inline" href="/cart">View Cart</a>
         <a class="dropdown-item d-inline" href="/checkout">

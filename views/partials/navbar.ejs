@@ -40,21 +40,23 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="cart">
         <% for (var i = 0; i < cart.length; i++) { %>
-        <div class="navbar-cart-product cart-item">
-          <div class="d-flex align-items-center">
-            <a href="#">
-              <img src="/images/upload/<%= cart[i].image %>" class="img-fluid navbar-cart-product-image">
-            </a>
-            <div class="w-100">
-              <a href="/api/delete-cart/<%= cart[i]._id %>" class="close mr-3">
-                <i class="fa fa-times"></i>
-              </a>
-              <a href="#"><p class="name"><%= cart[i].name %></p></a>
-              <p class="quantity">Quantity: <%= cart[i].quantity %></p>
-              <p class="price">$<%= cart[i].price %></p>
+          <% if (i < 3) { %>
+            <div class="navbar-cart-product cart-item">
+              <div class="d-flex align-items-center">
+                <a href="#">
+                  <img src="/images/upload/<%= cart[i].image %>" class="img-fluid navbar-cart-product-image">
+                </a>
+                <div class="w-100">
+                  <a href="/api/delete-cart/<%= cart[i]._id %>" class="close mr-3">
+                    <i class="fa fa-times"></i>
+                  </a>
+                  <a href="#"><p class="name"><%= cart[i].name %></p></a>
+                  <p class="quantity">Quantity: <%= cart[i].quantity %></p>
+                  <p class="price">$<%= cart[i].price %></p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          <% } %>
         <% } %>
         <div class="dropdown-divider" style="margin: 3px 20px;"></div>
         <span class="dropdown-item">Total: $<%= totalCost %></span>

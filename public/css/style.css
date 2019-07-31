@@ -17,7 +17,8 @@
 }
 
 body {
-  font-family: 'Luxia Display' !important;
+  /* font-family: 'Times New Roman' !important; */
+  font-family: 'Cormorant Garamond', serif !important;
   letter-spacing: 2px;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -43,6 +44,7 @@ body {
   color: #b4975a !important;
   padding: 15px 30px !important;
   border: 1px solid #1a1a1a !important;
+  border-radius: 0 !important;
   cursor: pointer;
 }
 .button-secondary{
@@ -50,6 +52,7 @@ body {
   color: #1a1a1a !important;
   padding: 15px 30px !important;
   border: 1px solid #b4975a !important;
+  border-radius: 0 !important;
   cursor: pointer;
 }
 .button-primary:hover,
@@ -129,11 +132,12 @@ body {
 }
 
 .bg-image{
-  background-image: url('/images/omega-james-bond1.jpg');
+  background-image: url('/images/watch-poster3.jpg');
   background-size: cover;
   background-position: center;
-  height: 75vh;
-  width: 100%;
+  height: 87vh;
+  width: 100vw;
+  /* filter: brightness(80%); */
 }
 
 /* card */
@@ -207,6 +211,28 @@ body {
 .cart-item .close i{
   border: none !important;
   font-size: 0.8em;
+}
+
+/* poster */
+.poster{
+  /* background-image: url('/images/omega-james-bond1copy.jpg'); */
+  background-image: url('/images/watch-poster4.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  width: 100%;
+  /* filter: brightness(80%); */
+}
+
+/* brand */
+.brand{
+  padding: 100px 0;
+}
+.brand img{
+  width: 85%;
+  height: 120px;
+  background-color: #070707;
+  filter: brightness(80%);
 }
 
 /* service */

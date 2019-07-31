@@ -124,6 +124,19 @@ body {
 .cart .dropdown-menu{
   width: 350px;
 }
+.cart .dropdown-toggle{
+  position: relative;
+}
+.cart .dropdown-toggle span{
+  position: absolute;
+  top: -50%;
+  right: 30%;
+  background-color: #b4975a;
+  color: #fff;
+  font-size: 0.7em;
+  border-radius: 50%;
+  padding: 2.5px;
+}
 .custom-toggler.navbar-toggler {
     border-color: rgb(180,151,90);
 }
@@ -135,6 +148,7 @@ body {
   background-image: url('/images/watch-poster3.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   height: 87vh;
   width: 100vw;
   /* filter: brightness(80%); */
@@ -146,7 +160,6 @@ body {
 }
 .card{
   background-color: #070707 !important;
-  /* border: 1px solid #b4975a !important; */
   overflow: hidden;
 }
 .overlay{
@@ -168,7 +181,6 @@ body {
   border: 1px solid #b4975a;
 }
 .card:hover .overlay{
-  filter: blur(0);
   top: 0;
 }
 .card:hover img{
@@ -213,15 +225,24 @@ body {
   font-size: 0.8em;
 }
 
-/* poster */
-.poster{
-  /* background-image: url('/images/omega-james-bond1copy.jpg'); */
-  background-image: url('/images/watch-poster4.jpg');
+/* features */
+.features{
+  background-image: url('/images/omega-james-bond1copy1.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  max-width: 100%;
+}
+
+/* poster */
+.poster{
+  background-image: url('/images/watch-poster4.jpg');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
   height: 90vh;
   width: 100%;
-  /* filter: brightness(80%); */
 }
 
 /* brand */

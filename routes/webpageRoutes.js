@@ -1,63 +1,80 @@
 const mongoose = require('mongoose');
 const addPrice = require('../utils/addPrice');
 const totalPrice = require('../utils/totalPrice');
+const totalQty = require('../utils/totalQuantity');
 
 const Product = mongoose.model('product');
 
 let totalCost = 0;
+let totalQuantity = 0;
 
 module.exports = (app, cart) =>{
   app.get('/', (req, res) =>{
     totalCost = totalPrice(cart);
-    res.render('index', { cart, totalCost });
+    totalQuantity = totalQty(cart);
+    res.render('index', { cart, totalCost, totalQuantity });
   });
 
   app.get('/about', (req, res) =>{
     totalCost = totalPrice(cart);
-    res.render('about', { cart, totalCost });
+    totalQuantity = totalQty(cart);
+    res.render('about', { cart, totalCost, totalQuantity });
   });
 
   app.get('/watch/classic', (req, res) =>{
     totalCost = totalPrice(cart);
-    Product.find((err, product) =>{
-      (err) ? res.status(503).send(err) : res.render('watch/classic', { cart, totalCost, product });
+    totalQuantity = totalQty(cart);
+    const query = { type: 'classic' };
+
+    Product.find(query, (err, product) =>{
+      (err) ? res.status(503).send(err) : res.render('watch/classic', { cart, totalCost, product, totalQuantity });
     });
   });
 
   app.get('/watch/quartz', (req, res) =>{
     totalCost = totalPrice(cart);
-    Product.find((err, product) =>{
-      (err) ? res.status(503).send(err) : res.render('watch/quartz', { cart, totalCost, product });
+    totalQuantity = totalQty(cart);
+    const query = { type: 'quartz' };
+
+    Product.find(query, (err, product) =>{
+      (err) ? res.status(503).send(err) : res.render('watch/quartz', { cart, totalCost, product, totalQuantity });
     });
   });
 
   app.get('/watch/chronograph', (req, res) =>{
     totalCost = totalPrice(cart);
-    Product.find((err, product) =>{
-      (err) ? res.status(503).send(err) : res.render('watch/chronograph', { cart, totalCost, product });
+    totalQuantity = totalQty(cart);
+    const query = { type: 'chronograph' };
+
+    Product.find(query, (err, product) =>{
+      (err) ? res.status(503).send(err) : res.render('watch/chronograph', { cart, totalCost, product, totalQuantity });
     });
   });
 
   app.get('/watch/:productId', (req, res) =>{
     const { productId } = req.params;
     totalCost = totalPrice(cart);
+    totalQuantity = totalQty(cart);
     Product.findById(productId, (err, product) =>{
-      (err) ? res.status(503).send(err) : res.render('watch/classic', { cart, totalCost, product });
+      (err) ? res.status(503).send(err) : res.render('watch/classic', { cart, totalCost, product, totalQuantity });
     });
   });
 
   app.get('/contact', (req, res) =>{
     totalCost = totalPrice(cart);
-    res.render('contact', { cart, totalCost });
+    totalQuantity = totalQty(cart);
+    res.render('contact', { cart, totalCost, totalQuantity });
   });
 
   app.get('/return-policy', (req, res) =>{
     totalCost = totalPrice(cart);
-    res.render('returnPolicy', { cart, totalCost });
+    totalQuantity = totalQty(cart);
+    res.render('returnPolicy', { cart, totalCost, totalQuantity });
   });
 
   app.get('/terms-and-condition', (req, res) =>{
     totalCost = totalPrice(cart);
-    res.render('termsCondition', { cart, totalCost });
+    totalQuantity = totalQty(cart);
+    res.render('termsCondition', { cart, totalCost, totalQuantity });
   });
 }

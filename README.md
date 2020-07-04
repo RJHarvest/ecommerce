@@ -9,6 +9,7 @@ An ecommerce webapp for luxurious watches for my school project.
 - NodeJS
 - Express
 - MongoDB
+- Redis
 
 ## Getting Started
 

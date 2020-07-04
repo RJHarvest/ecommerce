@@ -2,36 +2,37 @@ const mongoose = require('mongoose');
 const addPrice = require('../utils/addPrice');
 const totalPrice = require('../utils/totalPrice');
 const removeCartItem = require('../utils/removeCartItem');
-// const checkCartItem = require('../utils/checkCartItem');
+const addToCart = require('../utils/addToCart');
 
 const Product = mongoose.model('product');
 
-module.exports = (app, cart) =>{
+module.exports = (app) =>{
   app.post('/api/add-cart/:productId', (req, res) =>{
     const { productId } = req.params;
     let { quantity } = req.body;
+    let cart = req.session.cart;
     let cost = 0;
 
     Product.findById(productId).lean().exec((err, product) =>{
-      if (err) res.status(503).send(err);
+      if (err) return res.status(503).send(err);
 
       quantity = parseInt(quantity);
-      (quantity > 1) ? cost = addPrice(product, quantity) : cost = product.price;
-      product["quantity"] = quantity;
-      product["cost"] = cost;
-      cart.push(product);
+      cart = addToCart(cart, productId, product, quantity);
+      req.session.cart = cart;
       res.redirect('back');
     });
   });
 
   app.get('/api/delete-cart/:productId', (req, res) =>{
     const { productId } = req.params;
-    cart = removeCartItem(cart, productId);
+    const cart = req.session.cart;
+    const newCart = removeCartItem(cart, productId);
+    req.session.cart = newCart;
     res.redirect('back');
   });
 
   app.post('/api/empty-cart', (req, res) =>{
-    cart = [];
+    req.session.cart = [];
     res.redirect('back');
   });
 }

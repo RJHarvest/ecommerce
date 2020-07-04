@@ -8,20 +8,23 @@ const Product = mongoose.model('product');
 let totalCost = 0;
 let totalQuantity = 0;
 
-module.exports = (app, cart) =>{
+module.exports = (app) =>{
   app.get('/', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     res.render('index', { cart, totalCost, totalQuantity });
   });
 
   app.get('/about', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     res.render('about', { cart, totalCost, totalQuantity });
   });
 
   app.get('/watch/classic', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     const query = { type: 'classic' };
@@ -32,6 +35,7 @@ module.exports = (app, cart) =>{
   });
 
   app.get('/watch/quartz', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     const query = { type: 'quartz' };
@@ -42,6 +46,7 @@ module.exports = (app, cart) =>{
   });
 
   app.get('/watch/chronograph', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     const query = { type: 'chronograph' };
@@ -53,6 +58,7 @@ module.exports = (app, cart) =>{
 
   app.get('/watch/:productId', (req, res) =>{
     const { productId } = req.params;
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     Product.findById(productId, (err, product) =>{
@@ -61,18 +67,21 @@ module.exports = (app, cart) =>{
   });
 
   app.get('/contact', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     res.render('contact', { cart, totalCost, totalQuantity });
   });
 
   app.get('/return-policy', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     res.render('returnPolicy', { cart, totalCost, totalQuantity });
   });
 
   app.get('/terms-and-condition', (req, res) =>{
+    const cart = req.session.cart;
     totalCost = totalPrice(cart);
     totalQuantity = totalQty(cart);
     res.render('termsCondition', { cart, totalCost, totalQuantity });

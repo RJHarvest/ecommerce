@@ -1,7 +1,7 @@
 module.exports = (product, quantity) =>{
   let totalCost = 0;
-  for (var i = 0; i < quantity; i++) {
-    totalCost += product.price;
+  if (quantity > 0) {
+    totalCost = product.price * quantity;
   }
   return totalCost;
 }

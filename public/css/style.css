@@ -303,10 +303,16 @@ input {
 }
 
 /* contact form */
-.contact-form {
+.contact-section {
   padding: 80px 0;
-  background: url('../images/watch-poster7.jpg') no-repeat;
+  background: url('../images/watch-poster8.jpg') no-repeat;
   background-size: cover;
+  background-position: left;
+}
+.contact-form {
+  padding: 50px;
+  margin-right: 80px;
+  background-color: rgba(0,0,0,0.4);
 }
 
 /* footer */

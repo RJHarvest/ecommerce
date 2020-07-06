@@ -1,0 +1,46 @@
+  <section class="brand text-center" style="background-color:#000000;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-12">
+          <h1 style="line-height:1.4;">Be the first to know</h1>
+          <p class="text-color-secondary" style="margin-bottom:30px;">Discover how to find the best watch and enjoy exclusive products and offers</p>
+        </div>
+        <div class="col-md-6 offset-md-3 col-sm-12">
+          <form id="subscription-form">
+            <div class="form-group">
+              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Your email here" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <button type="submit" class="btn button-secondary">Sign Up Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="subscibe-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="border:none;">
+        <div class="modal-header" style="background-color:#000000;border:none;">
+          <h5 class="modal-title text-color-secondary">Gentlemen Watch</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#fff"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body" style="background-color:#1a1a1d;color:#e6e6e6;">
+          <p style="text-transform:none;">Thanks for subscribing!</p>
+          <p style="text-transform:none;">Be sure to check your email for our latest news updates&hellip;</p>
+        </div>
+        <div class="modal-footer" style="background-color:#000000;border:none;">
+          <button type="button" class="btn button-secondary button-small" data-dismiss="modal">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#subscription-form').submit(function(e) {
+        e.preventDefault();
+        $('#subscibe-modal').modal('show');
+      });
+    });
+  </script>

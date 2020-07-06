@@ -7,8 +7,10 @@ const cookieSession = require('cookie-session');
 const session = require('express-session');
 const redis = require('redis');
 const RedisStore = require('connect-redis')(session);
+const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const { initCartSession, createGlobalCartVariables } = require('./middlewares');
 require('./models/User');
 require('./models/Product');
 
@@ -25,6 +27,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 app.use(
   cookieSession({
@@ -47,13 +50,12 @@ app.use(session({
   },
 }));
 
-app.use((req, res, next) => {
-  if (!req.session.cart) req.session.cart = [];
-  return next();
-})
+app.use(initCartSession);
+app.use(createGlobalCartVariables);
 
 require('./routes/authRoutes')(app);
-require('./routes/webpageRoutes')(app);
+require('./routes/staticRoutes')(app);
+require('./routes/watchRoutes')(app);
 require('./routes/cartRoutes')(app);
 
 if (process.env.NODE_ENV !== 'production') {

@@ -26,6 +26,12 @@ body {
   color: #eee !important;
   width: 100%;
 }
+p {
+  text-transform: capitalize;
+}
+input {
+  border-radius: 0 !important;
+}
 
 .color-primary {
   background-color: #1a1a1a;
@@ -67,6 +73,9 @@ body {
 }
 .small-padding{
   padding: 10px !important;
+}
+.subheading {
+  text-transform: uppercase;
 }
 
 /* navbar */
@@ -161,6 +170,12 @@ body {
 .card{
   background-color: #070707 !important;
   overflow: hidden;
+  height: 800px;
+}
+.card img {
+}
+.card-img {
+  width: 100%;
 }
 .overlay{
   position: absolute;
@@ -274,6 +289,24 @@ body {
 }
 .service .content p{
   color: #aaa;
+}
+
+/* return policy */
+.return-policy,
+.terms {
+  padding: 80px 0;
+  background-color: #202020;
+}
+.return-policy .title {
+  line-height: 2;
+  color: #b4975a;
+}
+
+/* contact form */
+.contact-form {
+  padding: 80px 0;
+  background: url('../images/watch-poster7.jpg') no-repeat;
+  background-size: cover;
 }
 
 /* footer */

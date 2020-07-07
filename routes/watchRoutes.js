@@ -12,7 +12,11 @@ module.exports = (app) => {
         console.error('[ Error in /watch/classic ]', err);
         return res.status(503).send(err);
       }
-      return res.render('watch/classic', { product, ...res.locals });
+      return res.render('watch', {
+        ...res.locals,
+        product,
+        category: 'classic'
+      });
     });
   });
 
@@ -24,7 +28,11 @@ module.exports = (app) => {
         console.error('[ Error in /watch/quartz ]', err);
         return res.status(503).send(err);
       }
-      return res.render('watch/quartz', { product, ...res.locals });
+      return res.render('watch', {
+        ...res.locals,
+        product,
+        category: 'quartz'
+      });
     });
   });
 
@@ -36,15 +44,19 @@ module.exports = (app) => {
         console.error('[ Error in /watch/chronograph ]', err);
         return res.status(503).send(err);
       }
-      return res.render('watch/chronograph', { product, ...res.locals });
+      return res.render('watch', {
+        ...res.locals,
+        product,
+        category: 'chronograph'
+      });
     });
   });
 
-  app.get('/watch/:productId', (req, res) => {
+  app.get('/watch/details/:productId', (req, res) => {
     const { productId } = req.params;
     Product.findById(productId, (err, product) => {
       if (err) {
-        console.error('[ Error in /watch/:productId ]', err);
+        console.error('[ Error in /watch/details/:productId ]', err);
         return res.status(503).send(err);
       }
       return res.render('watch/details', { product, ...res.locals });

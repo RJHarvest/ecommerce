@@ -1,0 +1,45 @@
+<section class="shop-bottom-nav">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 category">
+        <a href="/watch/classic"><div class="watch-navigation">
+          <img src="../../images/watch-poster5.jpg" width="100%"/>
+          <div class="text">
+            <h1>Classic</h1>
+          </div>
+        </div></a>
+      </div>
+      <div class="col-md-4 col-sm-12 category">
+        <a href="/watch/quartz"><div class="watch-navigation">
+          <img src="../../images/omega-james-bond.jpg" width="100%"/>
+          <div class="text">
+            <h1>Quartz</h1>
+          </div>
+        </div></a>
+      </div>
+      <div class="col-md-4 col-sm-12 category">
+        <a href="/watch/chronograph"><div class="watch-navigation">
+          <img src="../../images/watch-wallpaper.jpg" width="100%"/>
+          <div class="text">
+            <h1>Chronograph</h1>
+          </div>
+        </div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $('.add-to-cart').click(function() {
+    const id = $(this).data('id');
+    const quantity = $(this).data('quantity');
+    $.ajax({
+      url: '/api/add-cart/' + id,
+      method: 'POST',
+      data: { quantity },
+      success: function() {
+        document.location.reload(true);
+      },
+    })
+  });
+</script>

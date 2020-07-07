@@ -15,12 +15,15 @@ passport.deserializeUser((id, done) =>{
 });
 
 passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, '_id username password', (err, user) =>{
-      if (err) return done(err);
+  async (username, password, done) => {
+    try {
+      const user = await User.findOne({ username: username }, '_id username password')
       if (!user) return done(null, false);
       if (user.password != password) return done(null, false);
       return done(null, user);
-    });
+    } catch(err) {
+      console.error('[ Error in local passport ]', err);
+      return done(err);
+    }
   }
 ));

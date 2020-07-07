@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 
 const User = mongoose.model('user');
 
-module.exports = app =>{
+module.exports = app => {
   app.post('/api/login',
     passport.authenticate('local', { failureRedirect:'/login' }),
     (req, res) =>{
-      res.redirect('/');
+      res.redirect('/member');
   });
 
-  app.post('/api/register', async (req, res) =>{
+  app.post('/api/register', async (req, res) => {
     const { username, password, name, email, address } = req.body;
 
     await new User({
@@ -24,12 +24,9 @@ module.exports = app =>{
     res.redirect('/login');
   });
 
-  app.get('/api/logout', (req, res) =>{
+  app.get('/api/logout', (req, res) => {
     req.logout();
     res.redirect('/');
   });
 
-  app.get('/api/current_user', (req, res) =>{
-    res.send(req.user);
-  });
 }

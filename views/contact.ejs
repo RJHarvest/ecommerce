@@ -4,28 +4,28 @@
       <div class="col-md-6 offset-md-6 col-sm-12">
         <div class="contact-form">
           <h1 style="margin-bottom:30px;">Contact Us</h1>
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="contact-form">
             <div class="form-group">
               <label for="name" class="col-md-2 control-label">Name</label>
               <div class="col-md-12">
-                <input type="text" class="form-control" id="name" placeholder="Name">
+                <input type="text" class="form-control" id="name" placeholder="Name" required>
               </div>
             </div>
             <div class="form-group">
               <label for="email" class="col-md-2 control-label">Email</label>
               <div class="col-md-12">
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
               </div>
             </div>
             <div class="form-group">
               <label for="subject" class="col-md-2 control-label">Subject</label>
               <div class="col-md-12">
-                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                <input type="text" class="form-control" id="subject" placeholder="Subject" required>
               </div>
             </div>
             <div class="form-group">
               <div class="col-md-12">
-                <textarea class="form-control" rows="5" placeholder="Your message here..."></textarea>
+                <textarea class="form-control" rows="5" placeholder="Your message here..." required></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -44,3 +44,30 @@
 </section>
 
 <% include partials/subscribe %>
+
+<div id="contact-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border:none;">
+      <div class="modal-header" style="background-color:#070707;border:none;">
+        <h5 class="modal-title text-color-secondary">Gentlemen Watch</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#fff"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body" style="background-color:#1a1a1d;color:#e6e6e6;">
+        <p style="text-transform:none;">Your message has been sent! Thanks for contacting us!</p>
+        <p style="text-transform:none;">We'll be sure to keep in touch with youas soon as we receive your message.</p>
+      </div>
+      <div class="modal-footer" style="background-color:#070707;border:none;">
+        <button type="button" class="btn button-secondary button-small" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('#contact-form').submit(function(e) {
+      e.preventDefault();
+      $('#contact-modal').modal('show');
+    });
+  });
+</script>

@@ -1,0 +1,17 @@
+<div class="modal fade" id="search-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="/api/search" method="POST" id="search-form">
+        <!--<i class="fas fa-search" aria-hidden="true"></i>-->
+        <input class="form-control" type="text" name="search" placeholder="Search..." />
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#search-form').submit(function(e) {
+    e.preventDefault();
+    window.location = '/watch/classic';
+  });
+</script>

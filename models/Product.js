@@ -3,7 +3,11 @@ const { Schema } = mongoose;
 
 const productSchema = new Schema({
   name: String,
-  type: String,
+  type: {
+    type: String,
+    enum: ['classic', 'quartz', 'chronograph'],
+    default: 'classic'
+  },
   brand: String,
   image: String,
   price: Number,

@@ -13,6 +13,7 @@ const keys = require('./config/keys');
 const { initCartSession, createGlobalCartVariables } = require('./middlewares');
 require('./models/User');
 require('./models/Product');
+require('./services/passport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
